@@ -1,0 +1,6 @@
+-- CREATE TABLE "Accounts" (
+--    "Id" INTEGER NOT NULL CONSTRAINT "PK_Employees" PRIMARY KEY AUTOINCREMENT,
+--    "Naam" TEXT NOT NULL,
+--    "Email" TEXT NOT NULL,
+--    "Bedrijf" TEXT NOT NULL
+-- )

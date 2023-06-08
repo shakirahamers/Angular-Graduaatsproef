@@ -1,0 +1,41 @@
+[
+    {
+        "id":1,
+        "Naam": "Matthijs Rotgans",
+        "Email": "matthijs@gmail.com",
+        "Bedrijf" : "Hogent",
+        "Starttijd": "8:30"
+    }
+    ,
+    {
+        "id":2,
+        "Naam": "Maxime Vierstraete",
+        "Email": "maxime@gmail.com",
+        "Bedrijf" : "Intel",
+        "Starttijd": "12:00"
+    }
+    ,
+    {
+        "id":3,
+        "Naam": "Shakira Hamers",
+        "Email": "shakira@gmail.com",
+        "Bedrijf" : "Angular",
+        "Starttijd": "14:50"
+    }
+    ,
+    {
+        "id":4,
+        "Naam": "Vincent Schietecatte",
+        "Email": "vincent@gmail.com",
+        "Bedrijf" : "Ivago",
+        "Starttijd": "18:00"
+    }
+    ,
+    {
+        "id":5,
+        "Naam": "Luc Vervoort",
+        "Email": "luc@gmail.com",
+        "Bedrijf" : "Hogent",
+        "Starttijd": "15:15"
+    }
+]

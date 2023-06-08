@@ -1,0 +1,85 @@
+/* You can add global styles to this file, and also import other style files */
+/* Application-wide Styles */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@font-face {
+  font-family: "Tajawal";
+  src: url("https://fonts.googleapis.com/css2?family=Pathway+Extreme:wght@600&family=Tajawal:wght@500&display=swap");
+}
+
+h1 {
+  color: black;
+  font-family: "Tajawal", Arial, Helvetica, sans-serif;
+  font-weight: lighter;
+  font-size: 300%;
+  text-align: center;
+  margin-top: 50px;
+}
+h2,
+h3 {
+  color: #444;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: lighter;
+  text-align: center;
+  margin-top: 10px;
+  font-size: large;
+}
+body {
+  margin: 2em;
+}
+button {
+  background-color: #eee;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: black;
+  padding: 1rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  font-family: "Tajawal", Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+button:hover {
+  background-color: black;
+  color: white;
+}
+button:disabled {
+  background-color: #eee;
+  color: #aaa;
+  cursor: auto;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+  padding: 10px;
+  text-align: center;
+  font-size: 110%;
+  margin-top: 50px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  position: relative;
+  z-index: 9999;
+}
+
+.ok-button {
+  width: 80px;
+  margin: 0 auto;
+  font-family: "Tajawal", Arial, Helvetica, sans-serif;
+}
+
+label,
+input {
+  display: inline-block;
+  margin-right: 10px;
+}
+/* everywhere else */
+* {
+  font-family: "Tajawal", Arial, Helvetica, sans-serif;
+}

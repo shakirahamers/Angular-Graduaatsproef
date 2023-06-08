@@ -1,0 +1,158 @@
+/* You can add global styles to this file, and also import other style files */
+/* Application-wide Styles */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@font-face {
+  font-family: "Tajawal";
+  src: url("https://fonts.googleapis.com/css2?family=Pathway+Extreme:wght@600&family=Tajawal:wght@500&display=swap");
+}
+
+h1 {
+  color: black;
+  font-family: "Tajawal", Arial, Helvetica, sans-serif;
+  font-weight: lighter;
+  font-size: 300%;
+  margin-top: 50px;
+}
+h2 {
+  color: #444;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: lighter;
+  margin-top: 10px;
+  font-size: 150%;
+}
+h3 {
+  color: #444;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: lighter;
+  text-align: center;
+  margin-top: 10px;
+  font-size: large;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body {
+  margin: 2em;
+}
+
+.bedrijf-select {
+  width: 210px;
+}
+
+button {
+  background-color: #eee;
+  border: none;
+  border-radius: 1px;
+  cursor: pointer;
+  color: black;
+  padding: 1rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  font-family: "Tajawal", Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+button:hover {
+  background-color: black;
+  color: white;
+}
+button:disabled {
+  background-color: #eee;
+  color: #aaa;
+  cursor: auto;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+  padding: 10px;
+  text-align: center;
+  font-size: 110%;
+  margin-top: 50px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  position: relative;
+  z-index: 9999;
+}
+
+.ok-button {
+  width: 80px;
+  margin: 0 auto;
+  font-family: "Tajawal", Arial, Helvetica, sans-serif;
+}
+
+label,
+input {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.container > div:first-child {
+  margin-right: 1rem;
+  width: 40%;
+}
+
+#wrapper {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.divide-y {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.divide-gray-200 > * > *:not(:last-child) {
+  border-bottom-width: 1px;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.shadow-md {
+  --tw-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 transparent),
+    var(--tw-ring-shadow, 0 0 transparent), var(--tw-shadow);
+}
+
+.sm\:rounded-lg {
+  border-radius: 0.5rem;
+}
+
+.data-table-header,
+.data-table-cell {
+  padding: 1rem;
+}
+
+.data-table-header {
+  font-weight: bold;
+  background-color: #f3f4f6;
+}
+
+/* Add spacing between elements in ngx-bootstrap datepicker */
+.datepicker.dropdown-menu table {
+  border-spacing: 40px;
+}
+
+.datepicker.dropdown-menu td {
+  padding: 40px;
+}
+
+/* everywhere else */
+* {
+  font-family: "Tajawal", Arial, Helvetica, sans-serif;
+}
