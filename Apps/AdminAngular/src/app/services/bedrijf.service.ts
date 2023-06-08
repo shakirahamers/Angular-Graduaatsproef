@@ -58,4 +58,9 @@ export class BedrijfService {
     const url = `https://localhost:7020/api/ParkingContract/${id}`;
     return this.http.delete(url);
   }
+
+  postParkingContract(parkingContract: any): Observable<any> {
+    const url = `https://localhost:7020/api/ParkingContract`;
+    return this.http.post(url, parkingContract);
+  }
 }
