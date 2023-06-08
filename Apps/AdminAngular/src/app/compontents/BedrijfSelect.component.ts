@@ -11,7 +11,6 @@ import { id } from '@swimlane/ngx-datatable';
       <div class="flex items-center mb-6 -mt-40">
         <h2 class="text-center -ml-12">Bedrijf:</h2>
         <select [(ngModel)]="selectedOption" (change)="onOptionSelect()" class="text-center mr-5 bedrijf-select ml-2 content-center bg-gray-50 border border-gray-300 rounded-lg focus:border-blue-500 block p-2.5 dark:bg-gray-400 hover:bg-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-600 dark:focus:border-gray-500" style="margin-left: 1.5rem;">
-          <option [style.background-color]="'gray'"  value="{{ defaultOption }}">{{ defaultOption }}</option>
           <option *ngFor="let bedrijf of bedrijven" [value]="bedrijf.id">{{ bedrijf.naam }}</option>
         </select>
       </div>
@@ -55,7 +54,7 @@ export class BedrijfSelectComponent {
   ngOnInit() {
     this.fetchBedrijven();
   }
-
+  
   fetchBedrijven() {
     this.bedrijfService.getBedrijven().subscribe({
       next: (response) => {
@@ -68,12 +67,18 @@ export class BedrijfSelectComponent {
           email: bedrijf.email,
           status: bedrijf.status,
         }));
+  
+        if (this.bedrijven.length > 0) {
+          this.selectedOption = this.bedrijven[0].id;
+          this.onOptionSelect();
+        }
       },
       error: (error) => {
         console.error('Error fetching options:', error);
       }
     });
-  }  
+  }
+  
   
   fetchBezoekersInBedrijf(bedrijfId: number) {
     this.bedrijfService.getBezoekersInBedrijf(bedrijfId).subscribe({

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BedrijfService } from '../services/bedrijf.service';
 import { Router } from '@angular/router';
+import { AppRoutingModule } from '../app-routing.module';
 
 @Component({
   selector: 'app-wijzigbedrijf',
@@ -29,6 +30,7 @@ import { Router } from '@angular/router';
         <div class="flex flex-col justify-center items-center h-full">
           <button type="submit" (click)="updateBedrijf()" class="bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded mt-5">OK</button>
           <button type="submit" (click)="verwijderBedrijf()" class="bg-red-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded mt-2">Verwijder</button>
+          <button [routerLink]="'/'" class="bg-gray-300 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded">Terug</button>
 
     </div>
   `,
