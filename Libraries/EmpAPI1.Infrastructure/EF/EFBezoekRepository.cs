@@ -45,7 +45,7 @@ namespace AllPhi.Infrastructure.EF
         public async Task<IEnumerable<Bezoek>> Get()
         {
             // we are using ToListAsync of dbset to show all entries
-            var emps = await _context.Bezoek.ToListAsync();
+            var emps = await _context.Bezoek.Where(x => x.Status == 1).ToListAsync();
             return _mapper.Map<List<Bezoek>>(emps);
         }
 

@@ -23,14 +23,15 @@ namespace AllPhi.REST
     {
         private readonly IBezoekerRepository _bezoekerRepo;
         private readonly IMapper _mapper;
+        private readonly IBezoekRepository _bezoekRepo;
 
-        public BezoekerController(IBezoekerRepository BezoekerRepository, IMapper mapper)
+        public BezoekerController(IBezoekerRepository BezoekerRepository, IMapper mapper, IBezoekRepository bezoekRepo)
         {
             _mapper = mapper;
             _bezoekerRepo = BezoekerRepository;
+            _bezoekRepo = bezoekRepo;
         }
 
-        
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<IEnumerable<DTO.BezoekerDTO>>> GetBezoekers()
@@ -93,6 +94,27 @@ namespace AllPhi.REST
                 return NotFound();
             await _bezoekerRepo.Delete(bezoekerToDelete.Id);
             return NoContent();
+        }
+
+        [HttpGet("[action]")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public List<Bezoeker> AlleBezoekersAanwezig()
+        {
+            var bezoeken = _bezoekRepo.Get();
+            List<Bezoeker> list = new List<Bezoeker>();
+
+            if (bezoeken.Result != null)
+            {
+                foreach (var bezoek in bezoeken.Result)
+                {
+                    int bezoekerId = bezoek.BezoekerId;
+
+                    var bezoeker = _bezoekerRepo.Get(bezoekerId).Result;
+                    list.Add(bezoeker);
+                }
+            }
+
+            return list;
         }
     }
 }

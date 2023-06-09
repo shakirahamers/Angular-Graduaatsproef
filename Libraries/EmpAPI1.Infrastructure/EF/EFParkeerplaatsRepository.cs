@@ -42,10 +42,10 @@ namespace AllPhi.Infrastructure.EF
                 _context.Parkeerplaats.Remove(parkeerplaatsToDelete);
                 await _context.SaveChangesAsync();
             }
-           //return parkeerplaatsToDelete;
+            //return parkeerplaatsToDelete;
         }
 
-     
+
         public async Task<IEnumerable<Parkeerplaats>> GetParkeerplaats()
         {
             // we are using ToListAsync of dbset to show all entries
@@ -73,7 +73,7 @@ namespace AllPhi.Infrastructure.EF
             //    Parkeerplaatsuitcontext.Status = 0;
             //}
 
-         //
+            //
             //await _context.SaveChangesAsync();
         }
 

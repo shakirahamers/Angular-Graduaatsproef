@@ -66,9 +66,9 @@ namespace AllPhi.Infrastructure.EF
                 bedrijfToUpdate.TelefoonNr = bedrijf.TelefoonNr;
                 await _context.SaveChangesAsync();
             }
-            
 
-            
+
+
         }
     }
 }

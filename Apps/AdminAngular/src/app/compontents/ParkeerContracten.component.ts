@@ -9,9 +9,7 @@ import { BedrijfService } from '../services/bedrijf.service';
       <ngx-datatable
         class="min-w-full divide-y divide-gray-200 bg-gray-300 overflow-hidden shadow-md sm:rounded-lg content-center px-4"
         [rows]="parkingcontracten" [columns]="columns" [columnMode]="'force'">
-        <ngx-datatable-column name="Bedrijf" prop="bedrijf"></ngx-datatable-column>
-        <ngx-datatable-column name="Startdatum" prop="startDatum"></ngx-datatable-column>
-        <ngx-datatable-column name="Einddatum" prop="eindDatum"></ngx-datatable-column>
+        <ngx-datatable-column name="Bedrijf" prop="bedrijfNaam"></ngx-datatable-column>
         <ngx-datatable-column name="Aantal plaatsen" prop="aantalPlaatsen"></ngx-datatable-column>
         <ngx-datatable-column name="Locatie" prop="locatie"></ngx-datatable-column>
         <ngx-datatable-column name="Actions" prop="actions">
@@ -36,9 +34,7 @@ export class ParkingContractenComponent {
   constructor(private bedrijfService: BedrijfService) {}
 
   columns = [
-    { prop: 'bedrijf', name: 'Bedrijf' },
-    { prop: 'startDatum', name: 'Startdatum' },
-    { prop: 'eindDatum', name: 'Einddatum' },
+    { prop: 'bedrijfNaam', name: 'Bedrijf' },
     { prop: 'aantalPlaatsen', name: 'Aantal plaatsen' },
     { prop: 'locatie', name: 'Locatie' },
     { prop: 'actions', name: 'Verwijder', width: 100 },
@@ -49,10 +45,10 @@ export class ParkingContractenComponent {
   }
 
   fetchParkingContracten() {
-    this.bedrijfService.getParkingcontracten().subscribe({
+    this.bedrijfService.getActieveParkingcontracten().subscribe({
       next: (response) => {
         this.parkingcontracten = response;
-        this.fetchBedrijfNames(); // Fetch bedrijf names for each parkingcontract
+        console.log(this.parkingcontracten);
       },
       error: (error) => {
         console.error('Error fetching parkingcontracten:', error);
@@ -75,7 +71,7 @@ export class ParkingContractenComponent {
   }
 
   verwijderParkingContract(contract: any) {
-    this.bedrijfService.deleteParkingContract(contract.id).subscribe({
+    this.bedrijfService.deleteParkingContract(contract.parkingContractId).subscribe({
       next: () => {
         this.fetchParkingContracten();
       },

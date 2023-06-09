@@ -54,6 +54,11 @@ export class BedrijfService {
     return this.http.get<any[]>(url);
   }
 
+  getActieveParkingcontracten(): Observable<any[]> {
+    const url = 'https://localhost:7020/api/ParkingContract/getActieveParkingContracten';
+    return this.http.get<any[]>(url);
+  }
+
   deleteParkingContract(id: number): Observable<any> {
     const url = `https://localhost:7020/api/ParkingContract/${id}`;
     return this.http.delete(url);

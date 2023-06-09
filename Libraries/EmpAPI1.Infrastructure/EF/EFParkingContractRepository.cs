@@ -36,7 +36,7 @@ namespace AllPhi.Infrastructure.EF
             var parkingContractToDelete = await _context.parkingContracten.FindAsync(parkingContractId);
             // we are using Remove method of dbset to delete entry
             if (parkingContractToDelete != null)
-                _context.parkingContracten.Remove(parkingContractToDelete);
+                parkingContractToDelete.Status = 0;
             await _context.SaveChangesAsync();
         }
 

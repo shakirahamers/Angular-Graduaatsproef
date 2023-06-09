@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Cors;
 using Microsoft.EntityFrameworkCore;
 using AllPhi.Infrastructure.EF;
 using AllPhi.Infrastructure.EF.DTO;
+using System.Reflection.Metadata.Ecma335;
 
 #if ProducesConsumes
 using System.Net.Mime;
@@ -25,13 +26,14 @@ namespace AllPhi.REST
     {
         private readonly IParkingContractRepository _parkingContractRepo;
         private readonly IMapper _mapper;
-        private readonly ParkingContractDbContext _context;
+        private readonly IBedrijfRepository _bedrijfRepository;
 
-        public ParkingContractController(IParkingContractRepository parkingContractRepository, IMapper mapper, ParkingContractDbContext context)
+        public ParkingContractController(IParkingContractRepository parkingContractRepository, IMapper mapper, IBedrijfRepository bedrijfRepository)
         {
             _mapper = mapper;
-            _parkingContractRepo =  parkingContractRepository;
-            _context = context;
+            _parkingContractRepo = parkingContractRepository;
+            _bedrijfRepository = bedrijfRepository;
+
         }
 
         [HttpGet]
@@ -66,7 +68,7 @@ namespace AllPhi.REST
                 return BadRequest();
             }
 
-            var existingParkingContract = await _context.parkingContracten.FindAsync(ParkingContractId);
+            var existingParkingContract = await _parkingContractRepo.GetParkingContract(ParkingContractId);
             if (existingParkingContract == null)
             {
                 return BadRequest();
@@ -98,11 +100,44 @@ namespace AllPhi.REST
             return NoContent();
         }
 
-        //    [HttpGet("[action]/{BedrijfId}")]
-        //    [ProducesResponseType(StatusCodes.Status200OK)]
-        //    public async Task<ActionResult<DTO.ParkingContractDTO>> GetParkingContractBedrijf(int BedrijfId)
-        //    {
-        //        return Ok(await _parkingContractRepo.GetParkingContractBedrijf(BedrijfId));
-        //    }
+        [HttpGet("[action]")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public List<contractUI> getActieveParkingContracten()
+        {
+            List<contractUI> contracts = new List<contractUI>();
+
+            var parkingContracten = _parkingContractRepo.GetParkingContract().Result;
+
+            if (parkingContracten != null)
+            {
+                foreach (var contract in parkingContracten)
+                {
+                    var bedrijf = _bedrijfRepository.Get(contract.BedrijfId).Result;
+                    if (bedrijf != null && contract.Status != 0)
+                    {
+                        contracts.Add(new contractUI(contract.Id, bedrijf.Naam, contract.Locatie, contract.AantalPlaatsen));
+                    }
+                }
+            }
+
+            return contracts;
+        }
+
+    }
+
+    public class contractUI
+    {
+        public contractUI(int ParkingContractId, string Bedrijfnaam, string Locatie, int AantalPlaatsen)
+        {
+            parkingContractId = ParkingContractId;
+            bedrijfNaam = Bedrijfnaam;
+            locatie = Locatie;
+            aantalPlaatsen = AantalPlaatsen;
+        }
+
+        public int parkingContractId { get; set; }
+        public string bedrijfNaam { get; set; }
+        public string locatie { get; set; }
+        public int aantalPlaatsen { get; set; }
     }
 }

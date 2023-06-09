@@ -35,7 +35,7 @@ import { id } from '@swimlane/ngx-datatable';
       </div>
     </div>
     <app-datagrid [bezoekers]="bezoekersInBedrijf"></app-datagrid>
-    <app-parkingcontract [parkingPlaatsen]="parkingContract.aantalPlaatsen"></app-parkingcontract>
+    <app-parkingcontract [parkingcontract]="parkingContract"></app-parkingcontract>
   `,
   styles: [],
 })

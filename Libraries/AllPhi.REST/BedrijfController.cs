@@ -23,12 +23,12 @@ namespace AllPhi.REST
     {
         private readonly IBedrijfRepository _bedrijfRepo;
         private readonly IMapper _mapper;
-        
+
 
         public BedrijfController(IBedrijfRepository bedrijfRepository, IMapper mapper)
         {
             _mapper = mapper;
-            _bedrijfRepo =  bedrijfRepository;
+            _bedrijfRepo = bedrijfRepository;
         }
 
         [HttpGet]

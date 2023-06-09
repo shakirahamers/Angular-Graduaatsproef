@@ -80,7 +80,7 @@ namespace AllPhi.REST
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<ActionResult> DeleteBezoek(int BezoekerID)
         {
-            return Ok( await _BezoekRepo.Delete(BezoekerID));
+            return Ok(await _BezoekRepo.Delete(BezoekerID));
             // We will check if the given id is present in database or not
             //if (BezoekToDelete == null)
             //    return NotFound();

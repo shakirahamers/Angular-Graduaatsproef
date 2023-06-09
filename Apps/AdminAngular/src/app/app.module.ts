@@ -18,6 +18,7 @@ import { NieuwBedrijfComponent } from './compontents/NieuwBedrijf.component';
 import { WijzigBedrijfComponent } from './compontents/WijzigBedrijf.component';
 import { AlleBezoekersComponent } from './compontents/AlleBezoekers.component';
 import { ParkingContractenComponent } from './compontents/ParkeerContracten.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { ParkingContractenComponent } from './compontents/ParkeerContracten.comp
     NgxDatatableModule,
     BrowserAnimationsModule,
     BsDatepickerModule.forRoot(),
+    [RouterModule, ReactiveFormsModule],
   ],
   providers: [],
   bootstrap: [AppComponent],
