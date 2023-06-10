@@ -9,6 +9,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './compontents/header.component';
 import { InputsComponent } from './compontents/inputs.component';
 import { BedanktComponent } from './compontents/bedankt.component';
+import { StartComponent } from './compontents/start.component';
+import { VertrekComponent } from './compontents/vertrek.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import { BedanktComponent } from './compontents/bedankt.component';
     HeaderComponent,
     InputsComponent,
     BedanktComponent,
+    StartComponent,
+    VertrekComponent
   ],
   imports: [
     BrowserModule, 

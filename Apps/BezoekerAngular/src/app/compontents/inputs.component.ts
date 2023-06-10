@@ -3,6 +3,7 @@ import { Component, Input } from '@angular/core';
 @Component({
   selector: 'app-inputs',
   template: `
+      <app-header [subtitle]="'Gelieve uw gegevens in te vullen'"></app-header>
     <div class="flex flex-col justify-center items-center h-full">
       <div>
         <label for="voornaam" class="font-semibold mt-5 block mb-2 text-blue-600">Voornaam</label>
@@ -33,6 +34,7 @@ import { Component, Input } from '@angular/core';
       </div>
       <div class="flex flex-col justify-center items-center h-full">
         <button type="submit" [routerLink]= "'/bedankt'"class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-5">Volgende</button>
+        <button type="submit" [routerLink]= "'/'"class="bg-gray-200 hover:bg-gray-700 text-blue-600 font-bold py-2 px-4 rounded">Terug</button>
       </div>
     </div>
   `,

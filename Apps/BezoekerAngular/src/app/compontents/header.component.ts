@@ -6,7 +6,6 @@ import { Component, Input } from '@angular/core';
   template: `
     <h1>{{ title }}</h1>
     <h3>{{ subtitle }}</h3>
-    <app-inputs></app-inputs>
   `,
   styles: [],
 })
@@ -16,7 +15,7 @@ export class HeaderComponent {
 
   constructor() {
     this.title = 'Welkom!';
-    this.subtitle = 'Gelieve uw gegevens in te vullen';
+    this.subtitle = '';
   }
 }
 
