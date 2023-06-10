@@ -44,8 +44,8 @@ export class BedrijfService {
     return this.http.post(url, bedrijf);
   }
 
-  deleteBedrijf(id: number): Observable<any> {
-    const url = `https://localhost:7020/api/Bedrijf/${id}`;
+  deleteBedrijf(bedrijfId: number): Observable<any> {
+    const url = `https://localhost:7020/api/Bedrijf/${bedrijfId}`;
     return this.http.delete(url);
   }
 
