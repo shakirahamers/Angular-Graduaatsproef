@@ -49,6 +49,11 @@ export class BedrijfService {
     return this.http.delete(url);
   }
 
+  getActieveBedrijven(): Observable<any[]> {
+    const url = 'https://localhost:7020/api/Bedrijf/GetActieveBedrijven';
+    return this.http.get<any[]>(url);
+  }
+
   getParkingcontracten(): Observable<any[]> {
     const url = 'https://localhost:7020/api/ParkingContract';
     return this.http.get<any[]>(url);

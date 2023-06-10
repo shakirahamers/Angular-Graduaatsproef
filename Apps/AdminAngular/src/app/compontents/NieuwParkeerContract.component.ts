@@ -100,7 +100,7 @@ export class NieuwParkeerContractComponent {
   }
 
   fetchBedrijven() {
-    this.bedrijfService.getBedrijven().subscribe({
+    this.bedrijfService.getActieveBedrijven().subscribe({
       next: (response) => {
         this.bedrijven = response.map(bedrijf => ({
           id: bedrijf.id,

@@ -38,6 +38,27 @@ namespace AllPhi.REST
             return Ok(await _bedrijfRepo.Get());
         }
 
+        [HttpGet("[action]")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public List<BedrijfUI> GetActieveBedrijven()
+        {
+            List<BedrijfUI> bedrijven = new List<BedrijfUI>();
+            var alleBedrijven = _bedrijfRepo.Get().Result;
+
+            if (alleBedrijven != null)
+            {
+                foreach (var bedrijf in alleBedrijven)
+                {
+                    if (bedrijf.Status == 1)
+                    {
+                        bedrijven.Add(new BedrijfUI (bedrijf.Id, bedrijf.Naam, bedrijf.BtwNummer, bedrijf.Adres, bedrijf.TelefoonNr, bedrijf.Email  ));
+                    }
+                }
+            }
+
+            return bedrijven;
+        }
+
         [HttpGet("{BedrijfId}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<DTO.BedrijfDTO>> GetBedrijven(int BedrijfId)
@@ -87,6 +108,24 @@ namespace AllPhi.REST
             return NoContent();
         }
 
+        public class BedrijfUI
+        {
+            public BedrijfUI(int id, string naam, string btwNummer, string adres, string telefoonNr, string email)
+            {
+                Id = id;
+                Naam = naam;
+                this.btwNummer = btwNummer;
+                Adres = adres;
+                TelefoonNr = telefoonNr;
+                Email = email;
+            }
 
+            public int Id { get; set; }
+            public string Naam { get; set; }
+            public string btwNummer { get; set; }
+            public string Adres { get; set; }
+            public string TelefoonNr { get; set; }
+            public string Email { get; set; }
+        }
     }
 }

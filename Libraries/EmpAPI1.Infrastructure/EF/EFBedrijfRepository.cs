@@ -36,7 +36,7 @@ namespace AllPhi.Infrastructure.EF
             var bedrijfToDelete = await _context.bedrijven.FindAsync(bedrijfId);
             // we are using Remove method of dbset to delete entry
             if (bedrijfToDelete != null)
-                _context.bedrijven.Remove(bedrijfToDelete);
+                bedrijfToDelete.Status = 0;
             await _context.SaveChangesAsync();
         }
 
