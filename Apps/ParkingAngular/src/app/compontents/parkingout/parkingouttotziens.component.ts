@@ -16,5 +16,12 @@ import { Router } from '@angular/router';
   styles: [],
 })
 export class ParkingOutTotziensComponent {
+  constructor(private router: Router) {}
+  timer = 5000;
 
+  ngOnInit() {
+  setTimeout(() => {
+    this.router.navigate(['/']);
+  }, this.timer);
+}
 }

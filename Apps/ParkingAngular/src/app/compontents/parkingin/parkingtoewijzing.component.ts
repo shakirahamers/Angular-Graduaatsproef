@@ -19,6 +19,15 @@ import { Router } from '@angular/router';
 })
 export class ParkingToewijzingComponent {
   
+  constructor(private router: Router) {}
+  timer = 5000;
+
+  ngOnInit() {
+  setTimeout(() => {
+    this.router.navigate(['/']);
+  }, this.timer);
+}
+
   randomLetter = String.fromCharCode(97 + Math.floor(Math.random() * 26));
   randomNumber = Math.floor(Math.random() * 10);
 
