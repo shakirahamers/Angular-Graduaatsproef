@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-
 @Component({
   selector: 'app-bedrijf-select',
   template: `
@@ -23,7 +22,6 @@ import { Component, OnInit } from '@angular/core';
   </button>
 </div>
 
-
         <div *ngIf="getCapacityPercentage() === 100">
           <p class="text-red-800 font-medium mt-6 text-lg">Sorry, dit bedrijf heeft geen parkeerplaatsen meer. Gelieve een ander bedrijf te kiezen.</p>
         </div>
@@ -33,20 +31,20 @@ import { Component, OnInit } from '@angular/core';
   styles: [],
 })
 export class BedrijfSelectComponent implements OnInit {
-  options: { name: string, capacity: number, max: number }[] = [
-    { name: 'AllPhi 1', capacity: 10, max: 50 },
-    { name: 'AllPhi 2', capacity: 20, max: 25 },
-    { name: 'AllPhi 3', capacity: 30, max: 30 },
-  ];
-
-  defaultOption = "Selecteer een bedrijf...";
-  selectedOption: string = "";
-  selectedOptionCapacity: number | undefined;
-  selectedOptionMax: number | undefined;
-
-  ngOnInit() {
-    this.selectedOption = this.defaultOption;
-  }
+    options: { name: string, capacity: number, max: number }[] = [
+      { name: 'AllPhi 1', capacity: 10, max: 50 },
+      { name: 'AllPhi 2', capacity: 20, max: 25 },
+      { name: 'AllPhi 3', capacity: 30, max: 30 },
+    ];
+  
+    defaultOption = "Selecteer een bedrijf...";
+    selectedOption: string = "";
+    selectedOptionCapacity: number | undefined;
+    selectedOptionMax: number | undefined;
+  
+    ngOnInit() {
+      this.selectedOption = this.defaultOption;
+    }
 
   onOptionSelect() {
     console.log('Geselecteerde optie:', this.selectedOption);

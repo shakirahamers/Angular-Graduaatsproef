@@ -7,7 +7,7 @@ import { BrowserModule } from '@angular/platform-browser';
   template: `
     
       <h3 class="mt-7">{{nummerplaattitle}}</h3>
-      <input [(ngModel)]="inputValue" (ngModelChange)="onInputChange()" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="Uw nummerplaat" >
+      <input [(ngModel)]="inputValue"  maxlength="9" (ngModelChange)="onInputChange()" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="Uw nummerplaat" >
   `,
   styles: []
 })

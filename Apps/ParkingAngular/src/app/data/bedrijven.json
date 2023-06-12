@@ -1,0 +1,8 @@
+{
+  "bedrijven": [
+    { "name": "Bedrijf 1", "capacity": 15, "max": 50 },
+    { "name": "Bedrijf 2", "capacity": 10, "max": 20 },
+    { "name": "Bedrijf 3", "capacity": 5, "max": 30 }
+  ]
+}
+
