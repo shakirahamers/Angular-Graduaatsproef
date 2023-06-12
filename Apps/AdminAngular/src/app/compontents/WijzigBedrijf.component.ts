@@ -71,16 +71,16 @@ export class WijzigBedrijfComponent implements OnInit {
   ngOnInit() {
     const data = this.route.snapshot.queryParams['data'];
     this.selectedOptionData = JSON.parse(data);
-    console.log(this.selectedOptionData);
+    console.log(this.selectedOptionData.id);
   
-    this.bedrijfForm.patchValue({
+    this.bedrijfForm.setValue({
       naam: this.selectedOptionData.naam,
       btwNummer: this.selectedOptionData.btwNummer,
       adres: this.selectedOptionData.adres,
       telefoonNr: this.selectedOptionData.telefoonNr,
-      email: this.selectedOptionData.email
+      email: this.selectedOptionData.email,
     });
-  }
+  }  
   
 
   updateBedrijf() {
@@ -96,7 +96,18 @@ export class WijzigBedrijfComponent implements OnInit {
     this.http.get(`https://controleerbtwnummer.eu/api/validate/${btwNummer}.json`).subscribe({
       next: (response: any) => {
         if (response.valid) {
-    this.bedrijfService.putBedrijf(this.selectedOptionData).subscribe({
+          console.log(this.bedrijfForm.value)
+          const bedrijf = {
+            naam: this.bedrijfForm.value.naam,
+            btwNummer: this.bedrijfForm.value.btwNummer,
+            adres: this.bedrijfForm.value.adres,
+            telefoonNr: this.bedrijfForm.value.telefoonNr,
+            email: this.bedrijfForm.value.email,
+            id: this.selectedOptionData.id,
+            status: this.selectedOptionData.status,
+          }
+          console.log(bedrijf);
+    this.bedrijfService.putBedrijf(bedrijf).subscribe({
       next: () => {
         this.router.navigate(['/']);
       },
