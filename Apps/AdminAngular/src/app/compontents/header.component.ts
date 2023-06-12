@@ -7,7 +7,6 @@ import { Component, Input } from '@angular/core';
     <h1 class="text-center content-center mb-11">{{ title }}</h1>
     <app-bedrijfselect></app-bedrijfselect>
   `,
-  styles: [],
 })
 export class HeaderComponent {
   @Input() title: string;

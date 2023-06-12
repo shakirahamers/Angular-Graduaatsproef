@@ -49,7 +49,6 @@ import { BedrijfService } from '../services/bedrijf.service';
           <button [routerLink]="'/'" class="bg-gray-300 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded">Terug</button> 
     </div>
   `,
-  styles: [],
 })
 export class NieuwBedrijfComponent {  
   bedrijfForm: FormGroup;

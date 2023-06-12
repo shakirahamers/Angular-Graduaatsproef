@@ -12,7 +12,7 @@ import { BedrijfService } from '../services/bedrijf.service';
         <ngx-datatable-column name="Bedrijf" prop="bedrijfNaam"></ngx-datatable-column>
         <ngx-datatable-column name="Aantal plaatsen" prop="aantalPlaatsen"></ngx-datatable-column>
         <ngx-datatable-column name="Locatie" prop="locatie"></ngx-datatable-column>
-        <ngx-datatable-column name="Actions" prop="actions">
+        <ngx-datatable-column name=" " prop="actions">
           <ng-template let-row="row" ngx-datatable-cell-template>
             <button class="delete-button -mt-4 bg-transparent text-red-800 font-extrabold" (click)="verwijderParkingContract(row)">X</button>
           </ng-template>
@@ -25,7 +25,6 @@ import { BedrijfService } from '../services/bedrijf.service';
       </button>
     </div>
   `,
-  styles: [],
 })
 export class ParkingContractenComponent {
   @Input()
@@ -37,7 +36,7 @@ export class ParkingContractenComponent {
     { prop: 'bedrijfNaam', name: 'Bedrijf' },
     { prop: 'aantalPlaatsen', name: 'Aantal plaatsen' },
     { prop: 'locatie', name: 'Locatie' },
-    { prop: 'actions', name: 'Verwijder', width: 100 },
+    { prop: ' ', name: 'Verwijder', width: 100 },
   ];
 
   ngOnInit() {

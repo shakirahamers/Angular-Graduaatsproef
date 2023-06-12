@@ -18,7 +18,6 @@ import { BedrijfSelectComponent } from './BedrijfSelect.component';
   </div>
 </div>
   `,
-  styles: [],
 })
 export class ParkingContractComponent {  
   @Input() parkingcontract: any = {};

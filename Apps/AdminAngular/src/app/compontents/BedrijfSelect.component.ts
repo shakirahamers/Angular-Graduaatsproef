@@ -37,7 +37,6 @@ import { id } from '@swimlane/ngx-datatable';
     <app-datagrid [bezoekers]="bezoekersInBedrijf"></app-datagrid>
     <app-parkingcontract [parkingcontract]="parkingContract"></app-parkingcontract>
   `,
-  styles: [],
 })
 export class BedrijfSelectComponent {
 

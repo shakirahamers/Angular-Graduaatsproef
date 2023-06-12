@@ -38,9 +38,7 @@ import { HttpClient } from '@angular/common/http';
           <input formControlName="startDatum" name="start" type="date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5"
             placeholder="Select start date">
         </div>
-        <div *ngIf="parkingContractForm.get('startDatum')?.invalid && (parkingContractForm.get('startDatum')?.touched || submitted)" class="text-red-500 text-sm mt-1">
-          Startdatum is verplicht.
-        </div>
+        
         <span class="mx-4 text-gray-500">tot</span>
         <div class="relative">
           <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -51,20 +49,25 @@ import { HttpClient } from '@angular/common/http';
           <input formControlName="eindDatum" name="end" type="date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5"
             placeholder="Select end date">
         </div>
+      </div>
+
+      <div class="flex items-center">
+        <div *ngIf="parkingContractForm.get('startDatum')?.invalid && (parkingContractForm.get('startDatum')?.touched || submitted)" class="text-red-500 text-sm mt-1 mr-10">
+          Startdatum is verplicht.
+        </div>
         <div *ngIf="parkingContractForm.get('eindDatum')?.invalid && (parkingContractForm.get('eindDatum')?.touched || submitted)" class="text-red-500 text-sm mt-1">
           Einddatum is verplicht.
         </div>
       </div>
+
       <div class="flex flex-col justify-center items-center h-full">
       <button type="input" class="bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded">OK</button>
         <button [routerLink]="'/'" class="bg-gray-300 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded">Terug</button>
       </div>
     </form>
   `,
-  styles: [],
 })
 export class NieuwParkeerContractComponent {
-  defaultOption = "Selecteer een bedrijf...";
   selectedOption: number = 0;
   bedrijven: any[] = [];
   bedrijf: any = {};

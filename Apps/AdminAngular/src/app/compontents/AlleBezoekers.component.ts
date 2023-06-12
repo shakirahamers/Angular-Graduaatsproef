@@ -18,11 +18,7 @@ import { BedrijfService } from '../services/bedrijf.service';
     Terug
     </button>
     </div>
-
-
   `,
-
-  styles: [],
 })
 export class AlleBezoekersComponent {  
   @Input()

@@ -11,7 +11,6 @@ import { Component, Input, OnChanges } from '@angular/core';
       </ngx-datatable>
     </div>
   `,
-  styles: [``]
 })
 export class DatagridComponent {
   @Input()

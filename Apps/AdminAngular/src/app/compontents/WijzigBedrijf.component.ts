@@ -50,7 +50,6 @@ import { HttpClient } from '@angular/common/http';
 
     </div>
   `,
-  styles: [],
 })
 export class WijzigBedrijfComponent implements OnInit {
     selectedOptionData: any;
