@@ -5,7 +5,8 @@ import { BedrijfService } from '../services/bedrijf.service';
 @Component({
   selector: 'app-allebezoekers',
   template: `
-    <h1 class="text-center mb-6">Alle aanwezige bezoekers</h1>
+    <h1 class="text-center mb-2">Alle aanwezige bezoekers</h1>
+    <h2 class="text-center mb-6">Aantal: {{bezoekers.length}}</h2>
     <div class="container mx-auto w-2/3 border-solid bg-gray-200 rounded-lg border-2 m-3 p-5" style="height: 420px;">
       <ngx-datatable
         class="min-w-full divide-y divide-gray-200 bg-gray-300 overflow-hidden shadow-md sm:rounded-lg content-center px-4"

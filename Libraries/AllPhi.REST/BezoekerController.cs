@@ -116,5 +116,27 @@ namespace AllPhi.REST
 
             return list;
         }
+
+        [HttpGet("[action]/{bedrijfId}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public List<Bezoeker> BezoekersAanwezig(int bedrijfId)
+        {
+            var bezoeken = _bezoekRepo.Get();
+            List<Bezoeker> list = new List<Bezoeker>();
+
+            if (bezoeken.Result != null)
+            {
+                foreach (var bezoek in bezoeken.Result)
+                {
+                    if (bezoek.BedrijfId == bedrijfId)
+                    {
+                        var bezoeker = _bezoekerRepo.Get(bezoek.BezoekerId).Result;
+                        list.Add(bezoeker);
+                    }
+                }
+            }
+
+            return list;
+        }
     }
 }
