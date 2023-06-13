@@ -45,7 +45,7 @@ export class BedrijfSelectComponent {
   bedrijven: any[] = [];
   bedrijf: any = {};
   bezoekersInBedrijf: any = '';
-  parkingContract: any = {}; 
+  parkingContract: any = null;
 
   constructor(private bedrijfService: BedrijfService, private router: Router) {
   }
@@ -101,16 +101,20 @@ export class BedrijfSelectComponent {
       next: (response) => {
         console.log('Response:', response);
 
-        this.parkingContract = {
-          id: response.id,
-          bedrijfId: response.bedrijfId,
-          startDatum: response.startDatum,
-          eindDatum: response.eindDatum,
-          aantalPlaatsen: response.aantalPlaatsen,
-          aantalBezettePlaatsen: response.aantalBezettePlaatsen,
-          status: response.status,
-          locatie: response.locatie,
-        };        
+        if (response) {
+          this.parkingContract = {
+            id: response.id,
+            bedrijfId: response.bedrijfId,
+            startDatum: response.startDatum,
+            eindDatum: response.eindDatum,
+            aantalPlaatsen: response.aantalPlaatsen,
+            aantalBezettePlaatsen: response.aantalBezettePlaatsen,
+            status: response.status,
+            locatie: response.locatie,
+          };
+        } else {
+          this.parkingContract = null;
+        }
       },
       error: (error) => {
         console.error('Error fetching parking contracts:', error);
