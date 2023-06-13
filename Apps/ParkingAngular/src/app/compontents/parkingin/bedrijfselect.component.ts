@@ -71,7 +71,6 @@ export class BedrijfSelectComponent implements OnInit {
   onInputValueChange(value: string) {
     this.inputValue = value;
     this.trimmedInputValue = this.inputValue.trim();
-    console.log('Input value changed:', this.trimmedInputValue);
   }
 
 }
