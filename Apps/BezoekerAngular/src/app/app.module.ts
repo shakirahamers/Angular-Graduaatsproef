@@ -28,7 +28,6 @@ import { VertrekComponent } from './compontents/vertrek.component';
     HttpClientModule,
     AppRoutingModule,
   ],
-  providers: [],
   bootstrap: [AppComponent],
   exports: [RouterModule]
 })

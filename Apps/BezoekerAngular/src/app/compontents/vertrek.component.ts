@@ -13,7 +13,6 @@ import { Component, Input } from '@angular/core';
         <button type="submit" [routerLink]="'/'" class="bg-gray-200 hover:bg-gray-700 text-blue-600 font-bold py-2 px-4 rounded">Terug</button>
       </div>
   `,
-  styles: [],
 })
 export class VertrekComponent {
   email: string = '';

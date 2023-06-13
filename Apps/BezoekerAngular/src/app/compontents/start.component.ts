@@ -12,7 +12,6 @@ import { Component, Input } from '@angular/core';
     </div>
     </div>
   `,
-  styles: [],
 })
 export class StartComponent {  
 }
