@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-inputs',
   template: `
-    <div class="mt-52">
+    <div class="mt-24">
       <app-header [subtitle]="'Gelieve uw gegevens in te vullen'"></app-header>
       <div class="flex flex-col justify-center items-center h-full">
         <div>
